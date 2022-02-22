@@ -18,7 +18,11 @@ what_to_calculate = input('What do you want to calculate?\n'
 
 if what_to_calculate == "m":
     monthly_payment = int(input('Enter the monthly payment:'))
+    result = round(loan / monthly_payment)
+    print(f'It will take {result} months to repay the loan')
 
 elif what_to_calculate == "p":
     number_of_months = int(input('Enter the number of months: '))
+    payment_per_month = round(loan / number_of_months)
 
+    print(f'Your monthly pay = {payment_per_month}')

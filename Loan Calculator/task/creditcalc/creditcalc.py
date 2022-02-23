@@ -1,3 +1,5 @@
+from math import ceil
+
 loan_principal = 'Loan principal: 1000'
 final_output = 'The loan has been repaid!'
 first_month = 'Month 1: repaid 250'
@@ -18,11 +20,17 @@ what_to_calculate = input('What do you want to calculate?\n'
 
 if what_to_calculate == "m":
     monthly_payment = int(input('Enter the monthly payment:'))
-    result = round(loan / monthly_payment)
-    print(f'It will take {result} months to repay the loan')
+    result = ceil(loan / monthly_payment)
+    if result > 1:
+        print(f'It will take {result} months to repay the loan')
+    else:
+        print(f'It will take {result} month to repay the loan')
 
 elif what_to_calculate == "p":
     number_of_months = int(input('Enter the number of months: '))
-    payment_per_month = round(loan / number_of_months)
-
-    print(f'Your monthly pay = {payment_per_month}')
+    payment_per_month = ceil(loan / number_of_months)
+    last_payment = loan - (number_of_months - 1) * payment_per_month
+    if payment_per_month == last_payment:
+        print(f'Your monthly pay = {payment_per_month}')
+    else:
+        print(f'Your monthly pay = {payment_per_month} and the last payment {last_payment}.')

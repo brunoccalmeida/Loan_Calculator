@@ -2,3 +2,4 @@ content:
 - String formatting
 - Math functions
 - Loop control statements
+- Argparse module
